@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-no-margin ion-padding">
+    <form [formGroup]="appointment" (ngSubmit)="submit()">
+      <ion-item>
+        <ion-label position=floating>Patient Name *</ion-label>
+        <ion-input type=text formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position=floating>Phone No *</ion-label>
+        <ion-input type=tel formControlName="phone" minlength=10 maxlength=10></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position=floating>Date *</ion-label>
+        <ion-datetime formControlName="date" displayFormat="DD/MM/YYYY HH:mm"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position=floating>Note</ion-label>
+        <ion-textarea formControlName="note"></ion-textarea>
+      </ion-item>
+
+      <ion-button type=submit>{{isEdit ? 'Update' : 'Add'}} Appointment</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

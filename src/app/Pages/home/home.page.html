@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Doctors App
+    </ion-title>
+
+    <ion-buttons (click)="add()" slot="end">
+      <ion-icon name="add-circle" color=primary style="font-size:26px"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 color=primary>Welcome, {{authService.User.email}}</h1>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Appointments
+    </ion-list-header>
+
+    <ion-item *ngFor="let a of appointment" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{a.name}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{a.phone}}
+        </p>
+      </ion-label>
+
+      <div item-end>
+        <ion-buttons>
+          <ion-button (click)="view(a)">
+            <ion-icon color=success name="create"></ion-icon>
+          </ion-button>
+          <ion-button (click)="deleteBooking(a.$key)">
+            <ion-icon color=danger name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </ion-item>
+  </ion-list>
